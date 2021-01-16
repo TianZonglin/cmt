@@ -16,14 +16,18 @@
 
 		</div>
  
+  <br><b>只读取最近100条评论！</b><br>
+  
+  
+  
 	  <div class="comments vcomment" id="comments"></div>
     
 	<script>
 	 
 	AV.init({
-		appId:"PW4p5yuQfOGT9EITp5LE5aAq-MdYXbMMI",appKey:"jvG1mwtdlCeGgyL1s4z4NIir" //nmsl
+		//appId:"PW4p5yuQfOGT9EITp5LE5aAq-MdYXbMMI",appKey:"jvG1mwtdlCeGgyL1s4z4NIir" //nmsl
 		//appId: "E7rWTTEsGSblT8OB06beui59-MdYXbMMI", appKey: "y4jlkd52FFbLb0kLALU0mrMm", //x4wj
-		//appId:'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz',  appKey:'ycqjmtEfUxuxD3IY97oRkrdO'
+		appId:'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz',  appKey:'ycqjmtEfUxuxD3IY97oRkrdO'
 		//appid: '6BMsyigADmQmTmVot7Bvfedv-MdYXbMMI', appkey: 't9Qx24vbwvimWMK2wzceFrQX',
 		//appId: 'ikEEo5XOYTytaqIUMsLaiisX-gzGzoHsz', appKey: 'CBx5lgfUldUe1i1qBC6m7k0K',
 	});
@@ -54,7 +58,7 @@
 		return newTime;         
 	}
 	for(var p in data){//遍历json数组时，这么写p为索引，0,1
-		if(data[p].attributes.nick!="Administrator"){
+		//if(data[p].attributes.nick!="Administrator"){
 			//console.log(data[p].attributes.url);
 			$('#allinshow').append('<div><a href='
 					+data[p].attributes.link
@@ -68,7 +72,7 @@
 					+data[p].attributes.comment
 					+"</div>");
 
-		}
+		//}
 	}
 
 	},function(err) {
@@ -79,25 +83,7 @@
 	</script>
     
 
-   
-	  <script>
-	  var GUEST_INFO = ['nick','mail','link'];
-	  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-		return GUEST_INFO.indexOf(item) > -1
-	  });
-	  var valine = new Valine();
-	  valine.init({
-		el: '#comments',
-		notify: true,
-		verify: true,
-		guest_info: guest_info,
-		appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
-		appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
-		placeholder: "请在这里输入你想说的话~",
-		pageSize:"10",
-		avatar:"retro"
-	  })
-	  </script>
+ 
  
 
 <br/>
