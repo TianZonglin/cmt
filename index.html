@@ -21,8 +21,9 @@
             background-color: #b3e1ff;
             float: left;
             margin: 0 20px 10px 15px;
-            padding: 9px 10px 10px 0px;
+            padding: 9px 10px 10px 10px;
             border-radius:7px;
+            max-width:500px;
         }
  
         .receiver div:first-child img,
@@ -42,8 +43,9 @@
             float:right;
             background-color: #b3e1ff;
             margin: 0px 15px 10px 20px;
-            padding: 10px 0px 10px 12px;
+            padding: 10px 10px 10px 12px;
             border-radius:7px;
+            max-width:500px;
         }
         .rname{
             float:right;
@@ -87,21 +89,18 @@
           color: #969696;font-size: 8px;
           margin-top: 70px;margin-bottom: 20px;
         }
+        p {
+            display: block;
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
   </style>
-  <center><div class="timm"> 2020-19-18 </div></center>
-  <div class="sender">
-      <div><img src="http://q1.qlogo.cn/g?b=qq&nk=1805984583&s=640"></div>
-      <span class="lname">清炒胖鸭 / cz5h.com</span><br>
-      <div><div class="left_triangle"></div><span> 淦你！ </span></div>
-  </div>
+
   
   <!-- Right -->
-  <center><div class="timm"> 2020-19-18 </div></center>
-  <div class="receiver">
-      <div><img src="http://q1.qlogo.cn/g?b=qq&nk=2823399539&s=640"></div>
-      <span class="rname">鸭稽稽 | https://www.d1a0.cn/</span><br>
-      <div><div class="right_triangle"></div><span> 我去你大爷的螺旋丸！ </span></div>
-  </div>    
+  
   
  
 	<div id="allinshow"></div>
@@ -143,21 +142,27 @@
 		return newTime;         
 	}
 	for(var p in data){//遍历json数组时，这么写p为索引，0,1
-		//if(data[p].attributes.nick!="Administrator"){
+		if(data[p].attributes.nick!="Administrator"){
 			//console.log(data[p].attributes.url);
 			$('#allinshow').append('<div><a href='
-					+data[p].attributes.link
-					+'><b>'
-					+data[p].attributes.nick
-					+"</b></a>&nbsp;于&nbsp;<b><a>"
-					+formatDate(data[p].attributes.insertedAt)
-					+"</a></b>&nbsp;在&nbsp;<b><a href='https://www.cz5h.com"
-					+data[p].attributes.url.replace(" ", "%20")
-					+"' target='_blank'>该页面</a></b>&nbsp;说："
-					+data[p].attributes.comment
-					+"</div>");
+        '<center><div class="timm"> 2020-19-18 </div></center>'
+        +'<div class="receiver">'
+            +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=2823399539&s=640"></div>'
+            +'<span class="rname">鸭稽稽 | https://www.d1a0.cn/</span><br>'
+            +'<div><div class="right_triangle"></div><span> 我去你大爷的螺旋丸！ </span></div>'
+        +'</div> ' 
+        );
 
-		//}
+		}else{
+      $('#allinshow').append(
+        '<center><div class="timm">'+formatDate(data[p].attributes.insertedAt)+'</div></center>'
+        +'<div class="sender">'
+            +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=1805984583&s=640"></div>'
+            +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
+            +'<div><div class="left_triangle"></div><span>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</span></div>'
+        +'</div>'
+        );
+    }
 	}
   $('#allinshow').append('<br><a name="end" id="end"class="timm">向上查看最近100条评论记录！</a><br><br>');
 	},function(err) {
