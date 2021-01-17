@@ -155,7 +155,7 @@
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="left_triangle"></div><span>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</span></div>'
         +'</div>'
- 
+        +'<div class="ltimm">'+formatDate(data[p+1].attributes.insertedAt)+'</div>'
         );
 
 		}else{
