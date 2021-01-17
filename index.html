@@ -149,22 +149,24 @@
 		if(data[p].attributes.nick!="Administrator"){
 			//console.log(data[p].attributes.url);
 			$('#allinshow').append(
-        '<div class="ltimm">'+formatDate(data[p].attributes.insertedAt)+'</div>'
-        +'<div class="sender">'
+        
+        '<div class="sender">'
             +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=1805984583&s=640"></div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="left_triangle"></div><span>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</span></div>'
         +'</div>'
+ 
         );
 
 		}else{
       $('#allinshow').append(
-        '<div class="rtimm">'+formatDate(data[p].attributes.insertedAt)+'</div>'
-        +'<div class="receiver">'
+        
+        '<div class="receiver">'
             +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=2823399539&s=640"></div>'
             +'<span class="rname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="right_triangle"></div><span>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</span></div>'
         +'</div> ' 
+        
         );
  
     }
@@ -175,7 +177,7 @@
 	  //console.log('err');
 	});
  
-  $("html,body").animate({scrollTop: $("#end").offset().top}, 3000);
+  //$("html,body").animate({scrollTop: $("#end").offset().top}, 3000);
     
 	</script>
     
