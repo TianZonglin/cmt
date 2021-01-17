@@ -132,14 +132,14 @@
 
 		</div>
  
-  <br><b>只读取最近100条评论！</b><br>
+  <br><a name="end"><b>只读取最近100条评论！</b></a><br>
   
   
   
 	  <div class="comments vcomment" id="comments"></div>
     
 	<script>
-/**	 
+ 
 	AV.init({
 		//appId:"PW4p5yuQfOGT9EITp5LE5aAq-MdYXbMMI",appKey:"jvG1mwtdlCeGgyL1s4z4NIir" //nmsl
 		//appId: "E7rWTTEsGSblT8OB06beui59-MdYXbMMI", appKey: "y4jlkd52FFbLb0kLALU0mrMm", //x4wj
@@ -195,7 +195,13 @@
 	  //错误信息 err
 	  //console.log('err');
 	});
-	**/ 
+ 
+  $(function () {
+    $("html, body").animate({
+       scrollTop: $('html, body').get(0).scrollHeight
+    }, 1000);
+  });
+    
 	</script>
     
 
