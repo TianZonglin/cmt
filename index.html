@@ -85,14 +85,20 @@
             right:-11px;
             top:-3px;
         }
-        .timm{
+        .rtimm{
           color: #969696;font-size: 8px;
           margin-top: 70px;margin-bottom: 20px;
           float:right;
           position:relative;
-          right:50%;
+          right:40%;
         }
- 
+        .ltimm{
+          color: #969696;font-size: 8px;
+          margin-top: 70px;margin-bottom: 20px;
+          float:left;
+          position:relative;
+          left:40%;
+        }
  
   </style>
 
@@ -143,7 +149,7 @@
 		if(data[p].attributes.nick!="Administrator"){
 			//console.log(data[p].attributes.url);
 			$('#allinshow').append(
-        '<center><div class="timm">'+formatDate(data[p].attributes.insertedAt)+'</div></center>'
+        '<div class="ltimm">'+formatDate(data[p].attributes.insertedAt)+'</div>'
         +'<div class="sender">'
             +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=1805984583&s=640"></div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
@@ -153,7 +159,7 @@
 
 		}else{
       $('#allinshow').append(
-        '<center><div class="timm">'+formatDate(data[p].attributes.insertedAt)+'</div></center>'
+        '<div class="rtimm">'+formatDate(data[p].attributes.insertedAt)+'</div>'
         +'<div class="receiver">'
             +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=2823399539&s=640"></div>'
             +'<span class="rname">'+data[p].attributes.nick+'</span><br>'
