@@ -88,14 +88,12 @@
         .timm{
           color: #969696;font-size: 8px;
           margin-top: 70px;margin-bottom: 20px;
+          float:right;
+          position:relative;
+          right:50%;
         }
-        p {
-            display: block;
-            margin-block-start: 0em;
-            margin-block-end: 0em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-        }
+ 
+ 
   </style>
 
   
@@ -144,17 +142,7 @@
 	for(var p in data){//遍历json数组时，这么写p为索引，0,1
 		if(data[p].attributes.nick!="Administrator"){
 			//console.log(data[p].attributes.url);
-			$('#allinshow').append('<div><a href='
-        '<center><div class="timm"> 2020-19-18 </div></center>'
-        +'<div class="receiver">'
-            +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=2823399539&s=640"></div>'
-            +'<span class="rname">鸭稽稽 | https://www.d1a0.cn/</span><br>'
-            +'<div><div class="right_triangle"></div><span> 我去你大爷的螺旋丸！ </span></div>'
-        +'</div> ' 
-        );
-
-		}else{
-      $('#allinshow').append(
+			$('#allinshow').append(
         '<center><div class="timm">'+formatDate(data[p].attributes.insertedAt)+'</div></center>'
         +'<div class="sender">'
             +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=1805984583&s=640"></div>'
@@ -162,6 +150,17 @@
             +'<div><div class="left_triangle"></div><span>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</span></div>'
         +'</div>'
         );
+
+		}else{
+      $('#allinshow').append(
+        '<center><div class="timm">'+formatDate(data[p].attributes.insertedAt)+'</div></center>'
+        +'<div class="receiver">'
+            +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=2823399539&s=640"></div>'
+            +'<span class="rname">'+data[p].attributes.nick+'</span><br>'
+            +'<div><div class="right_triangle"></div><span>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</span></div>'
+        +'</div> ' 
+        );
+ 
     }
 	}
   $('#allinshow').append('<br><a name="end" id="end"class="timm">向上查看最近100条评论记录！</a><br><br>');
