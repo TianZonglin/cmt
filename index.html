@@ -9,7 +9,7 @@
 	  <script src="https://old.cz5h.com/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
 	  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/TianZonglin/resource/blockies.min.js"></script>
+ 
     <title>Hello!</title>
 <style>
   /* bubble style */
@@ -181,17 +181,18 @@
     
 
  
+    
   function getPic(str){  
     var result;
     if (str.indexOf("@qq.com") >= 0) {
         var prefix = str.replace(/@.*/, ""),
             pattern = /^\d+$/g,
             result = prefix.match(pattern);
-        result = '<img src='+"//q.qlogo.cn/headimg_dl?dst_uin=" + prefix + "&spec=640"+'>';
+        result = "//q.qlogo.cn/headimg_dl?dst_uin=" + prefix + "&spec=640";
     }else if (str.indexOf("@") >= 0) {
-        result = '<img src='+"http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32"+'>';
+        result = "http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32";
     }else{
-        result = blockies.create();
+        result = "http://api.zjh336.cn/bt/sjtx/api.php?lx=c1&V="+Math.ceil(Math.random()*100);
     }
     return result;
   }  
@@ -203,7 +204,7 @@
 			$('#allinshow').append(
 
         '<div class="sender">'
-            +'<div>'+getPic(data[p].attributes.mail)+'</div>'
+            +'<div><img src='+getPic(data[p].attributes.mail)+'></div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="left_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
         +'</div><div style="clear: both;"></div>'
