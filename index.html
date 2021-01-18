@@ -35,7 +35,7 @@
         .sender div:first-child img{
             width:40px;
             height: 40px;
-            border-radius:5px;
+            border-radius:25px;
         }
  
         .receiver{
@@ -180,19 +180,20 @@
 	}
     
 
- 
+
     
   function getPic(str){  
     var result;
-    if (str.indexOf("@qq.com") >= 0) {
+    pt = /^\d+@qq\.com$/;
+    if (pt.test(str)) {
         var prefix = str.replace(/@.*/, ""),
             pattern = /^\d+$/g,
             result = prefix.match(pattern);
         result = "//q.qlogo.cn/headimg_dl?dst_uin=" + prefix + "&spec=640";
     }else if (str.indexOf("@") >= 0) {
-        result = "http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32";
+        result = "http://www.gravatar.com/avatar/"+md5(data[p].attributes.mail)+"?s=32";
     }else{
-        result = "http://api.zjh336.cn/bt/sjtx/api.php?lx=c1&V="+Math.ceil(Math.random()*100);
+        result = "http://www.gravatar.com/avatar/"+md5(data[p].attributes.mail)+"?s=32&&d=identicon";
     }
     return result;
   }  
