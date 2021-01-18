@@ -177,14 +177,29 @@
 					//sec;
 		return newTime;         
 	}
+    
+    
+  function getPic(str){  
+    var result;
+    if (str.indexOf("@qq.com") >= 0) {
+        var prefix = str.replace(/@.*/, ""),
+            pattern = /^\d+$/g,
+            result = prefix.match(pattern);
+        result "//q.qlogo.cn/headimg_dl?dst_uin=" + prefix + "&spec=640";
+    }else{
+        result "http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32";
+    }
+    return result;
+  }  
+    
 	for(var p in data){//遍历json数组时，这么写p为索引，0,1
     console.log(md5(data[p].attributes.mail));
 		if(data[p].attributes.nick!="Administrator"&&data[p].attributes.nick!="胖五鸭"){
 			//console.log(data[p].attributes.url);
 			$('#allinshow').append(
-        
+        getPic()
         '<div class="sender">'
-            +'<div><img src="http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32"></div>'
+            +'<div><img src='+getPic(data[p].attributes.mail)+'></div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="left_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
         +'</div><div style="clear: both;"></div>'
@@ -195,7 +210,7 @@
       $('#allinshow').append(
         
         '<div class="receiver">'
-            +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=1805984583&s=640"></div>'
+            +'<div><img src="http://q.qlogo.cn/headimg_dl?dst_uin=1805984583&spec=640"></div>'
             +'<span class="rname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="right_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
         +'</div><div style="clear: both;"></div>' 
