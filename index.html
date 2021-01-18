@@ -155,11 +155,9 @@
 	<script>
  
 	AV.init({
-		//appId:"PW4p5yuQfOGT9EITp5LE5aAq-MdYXbMMI",appKey:"jvG1mwtdlCeGgyL1s4z4NIir" //nmsl
-		//appId: "E7rWTTEsGSblT8OB06beui59-MdYXbMMI", appKey: "y4jlkd52FFbLb0kLALU0mrMm", //x4wj
+
 		appId:'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz',  appKey:'ycqjmtEfUxuxD3IY97oRkrdO'
-		//appid: '6BMsyigADmQmTmVot7Bvfedv-MdYXbMMI', appkey: 't9Qx24vbwvimWMK2wzceFrQX',
-		//appId: 'ikEEo5XOYTytaqIUMsLaiisX-gzGzoHsz', appKey: 'CBx5lgfUldUe1i1qBC6m7k0K',
+
 	});
 	//console.log(window.AV);
 	var query = new AV.Query("Comment");
@@ -254,7 +252,7 @@
 	});
  
   setTimeout(function(){ 
-    $("html,body").animate({scrollTop: $("#end").offset().top}, 3000); 
+    $("html,body").animate({scrollTop: $("#end").offset().top}, 1000); 
     if(document.body.clientWidth<400){
       console.log(1);
       $(".sender div:nth-of-type(2)").css("max-width",document.body.clientWidth-130 );
@@ -262,7 +260,7 @@
     }
   
   
-  }, 3000)
+  }, 2000)
     
 
   
