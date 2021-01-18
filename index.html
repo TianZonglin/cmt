@@ -9,7 +9,8 @@
 	  <script src="https://old.cz5h.com/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
 	  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
- 
+    <script src="script.js"></script>
+    <script src="style.css"></script>
     <title>Hello!</title>
 <style>
   /* bubble style */
@@ -154,116 +155,8 @@
     
 	<script>
  
-	AV.init({
-
-		appId:'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz',  appKey:'ycqjmtEfUxuxD3IY97oRkrdO'
-
-	});
-	//console.log(window.AV);
-	var query = new AV.Query("Comment");
-	query.descending("createdAt");//升序
-	query.find().then(function(data){
-	  //查询的结果数据 data
-	  //将data转成json格式
-	 var jsondata = JSON.parse(JSON.stringify(data));
  
-	function formatDate(time){
-		var date = new Date(time);
 
-		var year = date.getFullYear(),
-			month = date.getMonth() + 1,//月份是从0开始的
-			day = date.getDate(),
-			hour = date.getHours(),
-			min = date.getMinutes(),
-			sec = date.getSeconds();
- 
-		return {
-      "day":month+'-'+day,
-      "time":hour+':'+min+':'+sec
-    };         
-	}
-    
-
-
-    
-  function getPic(str){  
-    var result;
-    pt = /^\d+@qq\.com$/;
-    if (pt.test(str)) {
-        var prefix = str.replace(/@.*/, ""),
-            pattern = /^\d+$/g,
-            result = prefix.match(pattern);
-        result = "//q.qlogo.cn/headimg_dl?dst_uin=" + prefix + "&spec=640";
-    }else if (str.indexOf("@") >= 0) {
-        result = "http://www.gravatar.com/avatar/"+md5(data[p].attributes.mail)+"?s=32";
-    }else{
-        result = "http://www.gravatar.com/avatar/"+md5(data[p].attributes.mail)+"?s=32&&d=identicon";
-    }
-    return result;
-  }  
-  var pre = "time.day"; 
-    
-  $('#allinshow').append('<br><center><a class="timm" >更多历史评论请前往cz5h.com查阅！</a></center>');
-    
-	for(var p = data.length-1; p>=0;p--){//遍历json数组时，这么写p为索引，0,1
-  //for(var p in data){//遍历json数组时，这么写p为索引，0,1
-    var time = formatDate(data[p].attributes.insertedAt); 
-    
-    var t;
-    
-    if (pre != time.day){
-      console.log(pre,time.day);
-      t = '<div class="timm">'+time.day+'</div>';
-      pre = time.day;
-    }else{
-      t = '';
-    }
-		if(data[p].attributes.nick!="Administrator"
-       &&data[p].attributes.nick!="胖五鸭"
-       &&data[p].attributes.nick!="胖五"){
-			//console.log(data[p].attributes.url);
-			$('#allinshow').append(
-        t
-        +'<div class="sender">'
-            +'<div><img src='+getPic(data[p].attributes.mail)+'></div>'
-            +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
-            +'<div><div class="left_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
-        +'</div><div style="clear: both;"></div>'
-        
-        );
-
-		}else{
-      $('#allinshow').append(
-        t
-        +'<div class="receiver">'
-            +'<div><img src="http://q.qlogo.cn/headimg_dl?dst_uin=1805984583&spec=640"></div>'
-            +'<span class="rname">'+data[p].attributes.nick+'</span><br>'
-            +'<div><div class="right_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
-        +'</div><div style="clear: both;"></div>' 
-        
-        );
- 
-    }
-	}
-  $('#allinshow').append('<br><center><a name="end" id="end"class="timm" >已到达最新评论！</a></center><br><br>');
-	},function(err) {
-	  //错误信息 err
-	  //console.log('err');
-	});
- 
-  setTimeout(function(){ 
-    $("html,body").animate({scrollTop: $("#end").offset().top}, 1000); 
-    if(document.body.clientWidth<400){
-      console.log(1);
-      $(".sender div:nth-of-type(2)").css("max-width",document.body.clientWidth-130 );
-      $(".receiver div:nth-of-type(2)").css("max-width",document.body.clientWidth-130 );
-    }
-  
-  
-  }, 2000)
-    
-
-  
     
 	</script>
   
