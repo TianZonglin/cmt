@@ -30,6 +30,7 @@
             border-radius:7px;
             max-width:500px;
             position: relative;
+            word-wrap:break-word;word-break:break-all;white-space: normal;
           z-index:999;
         }
 
@@ -54,7 +55,7 @@
             padding: 10px 10px 10px 12px;
             border-radius:7px;
             max-width:500px;
-
+            word-wrap:break-word;word-break:break-all;white-space: normal;
         }
  
         .rname{
@@ -117,6 +118,8 @@
           margin-bottom: 60px;
         }
 
+
+        a { text-decoration:none;}
   
         @media screen and (max-width: 680px) {
             .sender div:nth-of-type(2){
@@ -179,9 +182,9 @@
 			min = date.getMinutes(),
 			sec = date.getSeconds();
 		 
-		var newTime = year + '年' +
-					month + '月' +
-					day + '日' +
+		var newTime = year + '-' +
+					month + '-' +
+					day + '-' +
 					hour + '点' +
 					min + '分' ;//+
 					//sec;
@@ -207,9 +210,33 @@
     return result;
   }  
     
-	for(var p = data.size()-1; p>=0;p--){//遍历json数组时，这么写p为索引，0,1
+	for(var p = data.length-1; p>=0;p--){//遍历json数组时，这么写p为索引，0,1
   //for(var p in data){//遍历json数组时，这么写p为索引，0,1
-    console.log(1111);
+    console.log(md5(data[p].attributes.mail));
+		if(data[p].attributes.nick!="Administrator"&&data[p].attributes.nick!="胖五鸭"){
+			//console.log(data[p].attributes.url);
+			$('#allinshow').append(
+        '<div class="rtimm">'+data[p].attributes.date+'</div>'
+        +'<div class="sender">'
+            +'<div><img src='+getPic(data[p].attributes.mail)+'></div>'
+            +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
+            +'<div><div class="left_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
+        +'</div><div style="clear: both;"></div>'
+        
+        );
+
+		}else{
+      $('#allinshow').append(
+        '<div class="ltimm>'+data[p].attributes.date+'</div>'
+        +'<div class="receiver">'
+            +'<div><img src="http://q.qlogo.cn/headimg_dl?dst_uin=1805984583&spec=640"></div>'
+            +'<span class="rname">'+data[p].attributes.nick+'</span><br>'
+            +'<div><div class="right_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
+        +'</div><div style="clear: both;"></div>' 
+        
+        );
+ 
+    }
 	}
   $('#allinshow').append('<br><center><a name="end" id="end"class="timm" >向上查看最近100条评论记录！</a></center><br><br><br><br>');
 	},function(err) {
