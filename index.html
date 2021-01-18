@@ -185,9 +185,11 @@
         var prefix = str.replace(/@.*/, ""),
             pattern = /^\d+$/g,
             result = prefix.match(pattern);
-        result "//q.qlogo.cn/headimg_dl?dst_uin=" + prefix + "&spec=640";
+        result = "//q.qlogo.cn/headimg_dl?dst_uin=" + prefix + "&spec=640";
+    }else if (str.indexOf("@") >= 0) {
+        result = "http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32";
     }else{
-        result "http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32";
+        result = "http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32";
     }
     return result;
   }  
@@ -197,7 +199,7 @@
 		if(data[p].attributes.nick!="Administrator"&&data[p].attributes.nick!="胖五鸭"){
 			//console.log(data[p].attributes.url);
 			$('#allinshow').append(
-        getPic()
+
         '<div class="sender">'
             +'<div><img src='+getPic(data[p].attributes.mail)+'></div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
