@@ -71,7 +71,8 @@
             border-style:solid;  
             border-color:#b3e1ff #b3e1ff transparent  transparent;
             position: relative;
-            left:-11px;
+            left:-21px;
+            right:0px;
             top:-3px;
         }
  
@@ -82,7 +83,8 @@
             border-style:solid;  
             border-color: #b3e1ff transparent  transparent  #b3e1ff; 
             position: relative;
-            right:-11px;
+            right:-21px;
+            left:0px;
             top:-3px;
         }
         .rtimm{
@@ -153,7 +155,7 @@
         '<div class="sender">'
             +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=1805984583&s=640"></div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
-            +'<div><div class="left_triangle"></div><span>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</span></div>'
+            +'<div><div class="left_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
         +'</div>'
         +'<div class="ltimm">'+formatDate(data[p+1].attributes.insertedAt)+'</div>'
         );
@@ -164,7 +166,7 @@
         '<div class="receiver">'
             +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=2823399539&s=640"></div>'
             +'<span class="rname">'+data[p].attributes.nick+'</span><br>'
-            +'<div><div class="right_triangle"></div><span>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</span></div>'
+            +'<div><div class="right_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
         +'</div> ' 
         
         );
