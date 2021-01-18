@@ -180,32 +180,18 @@
 	}
     
 
-    
-
-<script>
-
-var icons_container = document.getElementById("blockies-identicon")
-for (var i = 0; i < 10; i++) {
-    var icon = blockies.create();
-    icon.style.margin = "10px";
-    document.body.appendChild(icon);
-    icons_container.appendChild(icon);
-}  
-    
-    
-    
-    
+ 
   function getPic(str){  
     var result;
     if (str.indexOf("@qq.com") >= 0) {
         var prefix = str.replace(/@.*/, ""),
             pattern = /^\d+$/g,
             result = prefix.match(pattern);
-        result = "//q.qlogo.cn/headimg_dl?dst_uin=" + prefix + "&spec=640";
+        result = '<img src='+"//q.qlogo.cn/headimg_dl?dst_uin=" + prefix + "&spec=640"+'>';
     }else if (str.indexOf("@") >= 0) {
-        result = "http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32";
+        result = '<img src='+"http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32"+'>';
     }else{
-        result = "http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32";
+        result = blockies.create();
     }
     return result;
   }  
@@ -217,7 +203,7 @@ for (var i = 0; i < 10; i++) {
 			$('#allinshow').append(
 
         '<div class="sender">'
-            +'<div><img src='+getPic(data[p].attributes.mail)+'></div>'
+            +'<div>'+getPic(data[p].attributes.mail)+'</div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="left_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
         +'</div><div style="clear: both;"></div>'
