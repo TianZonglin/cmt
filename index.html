@@ -173,7 +173,7 @@
 			sec = date.getSeconds();
  
 		return {
-      "day":month+'-'+day+'-'+year,
+      "day":month+'-'+day,
       "time":hour+':'+min+':'+sec
     };         
 	}
@@ -246,7 +246,12 @@
 	  //console.log('err');
 	});
  
-  $("html,body").animate({scrollTop: $("#end").offset().top}, 3000);
+  setTimeout(function(){ $("html,body").animate({scrollTop: $("#end").offset().top}, 3000); }, 3000)
+    
+   if(document.body.clientWidth<400){
+      
+   }
+  
     
 	</script>
   
