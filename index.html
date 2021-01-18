@@ -178,12 +178,13 @@
 		return newTime;         
 	}
 	for(var p in data){//遍历json数组时，这么写p为索引，0,1
-		if(data[p].attributes.nick!="Administrator"){
+    console.log(md5(data[p].attributes.mail));
+		if(data[p].attributes.nick!="Administrator"&&data[p].attributes.nick!="胖五鸭"){
 			//console.log(data[p].attributes.url);
 			$('#allinshow').append(
         
         '<div class="sender">'
-            +'<div><img src="http://q1.qlogo.cn/g?b=qq&nk=1805984583&s=640"></div>'
+            +'<div><img src="http://www.gravatar.com/avatar/'+md5(data[p].attributes.mail)+'?s=32"></div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="left_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")+'</div>'
         +'</div><div style="clear: both;"></div>'
@@ -212,10 +213,10 @@
   //$("html,body").animate({scrollTop: $("#end").offset().top}, 3000);
     
 	</script>
-    
 
-<img class="vimg" src="${_avatarSetting['cdn']+md5(rt.get('mail'))+_avatarSetting['params']}">
-
+ 
+  
+  
 <br/>
  
  
