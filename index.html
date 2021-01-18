@@ -13,9 +13,7 @@
     <title>Hello!</title>
 <style>
   /* bubble style */
-  html{
-    background-color:#f0f3f6;
-  }
+ 
         .sender{
             clear:both;
         }
@@ -107,6 +105,7 @@
  
 
         a { text-decoration:none;}
+        body {margin:0}
   
         @media screen and (max-width: 680px) {
             .sender div:nth-of-type(2){
@@ -124,10 +123,14 @@
                 max-width:180px;
             }
         }
+        .main{
+          background-color:#f0f3f6;
+          padding-left:20px;
+          padding-right:20px;
+        }
         @media screen and (min-width: 1000px) {
           .main{
             max-width:1000px;
- 
             display: block;
             margin:0 auto;
           }
@@ -195,7 +198,7 @@
   }  
   var pre = "time.day"; 
     
-  $('#allinshow').append('<br><center><a name="end" id="end"class="timm" >！</a></center><br><br><br><br>');
+  $('#allinshow').append('<br><center><a class="timm" >更多历史评论请前往cz5h.com查阅！</a></center><br><br>');
     
 	for(var p = data.length-1; p>=0;p--){//遍历json数组时，这么写p为索引，0,1
   //for(var p in data){//遍历json数组时，这么写p为索引，0,1
@@ -210,7 +213,9 @@
     }else{
       t = '';
     }
-		if(data[p].attributes.nick!="Administrator"&&data[p].attributes.nick!="胖五鸭"){
+		if(data[p].attributes.nick!="Administrator"
+       &&data[p].attributes.nick!="胖五鸭"
+       &&data[p].attributes.nick!="胖五"){
 			//console.log(data[p].attributes.url);
 			$('#allinshow').append(
         t
@@ -235,20 +240,16 @@
  
     }
 	}
-  $('#allinshow').append('<br><center><a name="end" id="end"class="timm" >已到达最新评论！</a></center><br><br><br><br>');
+  $('#allinshow').append('<br><center><a name="end" id="end"class="timm" >已到达最新评论！</a></center><br><br>');
 	},function(err) {
 	  //错误信息 err
 	  //console.log('err');
 	});
  
-  //$("html,body").animate({scrollTop: $("#end").offset().top}, 3000);
+  $("html,body").animate({scrollTop: $("#end").offset().top}, 3000);
     
 	</script>
-
- 
   
-  
-<br/>
  
  
 </html>
