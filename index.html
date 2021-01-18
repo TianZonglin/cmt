@@ -170,7 +170,7 @@
 			sec = date.getSeconds();
  
 		return {
-      "day":year+'-'+month+'-'+day,
+      "day":month+'-'+day+'-'+year,
       "time":hour+':'+min+':'+sec
     };         
 	}
@@ -193,14 +193,27 @@
     }
     return result;
   }  
+  var pre = "time.day"; 
+    
+  $('#allinshow').append('<br><center><a name="end" id="end"class="timm" >！</a></center><br><br><br><br>');
     
 	for(var p = data.length-1; p>=0;p--){//遍历json数组时，这么写p为索引，0,1
   //for(var p in data){//遍历json数组时，这么写p为索引，0,1
-    var t = formatDate(data[p].attributes.insertedAt); 
+    var time = formatDate(data[p].attributes.insertedAt); 
+    
+    var t;
+    
+    if (pre != time.day){
+      console.log(pre,time.day);
+      t = '<div class="timm">'+time.day+'</div>';
+      pre = time.day;
+    }else{
+      t = '';
+    }
 		if(data[p].attributes.nick!="Administrator"&&data[p].attributes.nick!="胖五鸭"){
 			//console.log(data[p].attributes.url);
 			$('#allinshow').append(
-        '<div class="timm">'+t.day+'</div>'
+        t
         +'<div class="sender">'
             +'<div><img src='+getPic(data[p].attributes.mail)+'></div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
@@ -211,7 +224,7 @@
 
 		}else{
       $('#allinshow').append(
-        '<div class="timm">'+t.day+'</div>'
+        t
         +'<div class="receiver">'
             +'<div><img src="http://q.qlogo.cn/headimg_dl?dst_uin=1805984583&spec=640"></div>'
             +'<span class="rname">'+data[p].attributes.nick+'</span><br>'
@@ -222,7 +235,7 @@
  
     }
 	}
-  $('#allinshow').append('<br><center><a name="end" id="end"class="timm" >向上查看最近100条评论记录！</a></center><br><br><br><br>');
+  $('#allinshow').append('<br><center><a name="end" id="end"class="timm" >已到达最新评论！</a></center><br><br><br><br>');
 	},function(err) {
 	  //错误信息 err
 	  //console.log('err');
