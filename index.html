@@ -135,6 +135,13 @@
             margin:0 auto;
           }
         }
+        @media screen and (max-width: 500px) {
+          .main{
+            padding-left:8px;
+            padding-right:8px;
+          }
+        }
+  
   </style>
 
   
@@ -198,7 +205,7 @@
   }  
   var pre = "time.day"; 
     
-  $('#allinshow').append('<br><center><a class="timm" >更多历史评论请前往cz5h.com查阅！</a></center><br><br>');
+  $('#allinshow').append('<br><center><a class="timm" >更多历史评论请前往cz5h.com查阅！</a></center>');
     
 	for(var p = data.length-1; p>=0;p--){//遍历json数组时，这么写p为索引，0,1
   //for(var p in data){//遍历json数组时，这么写p为索引，0,1
@@ -246,11 +253,18 @@
 	  //console.log('err');
 	});
  
-  setTimeout(function(){ $("html,body").animate({scrollTop: $("#end").offset().top}, 3000); }, 3000)
+  setTimeout(function(){ 
+    $("html,body").animate({scrollTop: $("#end").offset().top}, 3000); 
+    if(document.body.clientWidth<400){
+      console.log(1);
+      $(".sender div:nth-of-type(2)").css("max-width",document.body.clientWidth-130 );
+      $(".receiver div:nth-of-type(2)").css("max-width",document.body.clientWidth-130 );
+    }
+  
+  
+  }, 3000)
     
-   if(document.body.clientWidth<400){
-      
-   }
+
   
     
 	</script>
