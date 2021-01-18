@@ -9,6 +9,7 @@
 	  <script src="https://old.cz5h.com/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
 	  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/TianZonglin/resource/blockies.min.js"></script>
     <title>Hello!</title>
 <style>
   /* bubble style */
@@ -177,6 +178,21 @@
 					//sec;
 		return newTime;         
 	}
+    
+
+    
+
+<script>
+
+var icons_container = document.getElementById("blockies-identicon")
+for (var i = 0; i < 10; i++) {
+    var icon = blockies.create();
+    icon.style.margin = "10px";
+    document.body.appendChild(icon);
+    icons_container.appendChild(icon);
+}  
+    
+    
     
     
   function getPic(str){  
