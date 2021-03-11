@@ -1,4 +1,6 @@
-	AV.init({
+////	
+
+AV.init({
 		//appId:"PW4p5yuQfOGT9EITp5LE5aAq-MdYXbMMI",appKey:"jvG1mwtdlCeGgyL1s4z4NIir" //nmsl
 		//appId: "E7rWTTEsGSblT8OB06beui59-MdYXbMMI", appKey: "y4jlkd52FFbLb0kLALU0mrMm", //x4wj
 		appId:'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz',  appKey:'ycqjmtEfUxuxD3IY97oRkrdO'
