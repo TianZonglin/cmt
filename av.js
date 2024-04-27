@@ -12042,7 +12042,7 @@ AV.init = function init(options) {
 
   if (isCNApp(appId)) {
     if (!serverURLs && isEmpty(AV._config.serverURLs)) {
-      //throw new TypeError("serverURL option is required for apps from CN region");
+      throw new TypeError("serverURL option is required for apps from CN region");
     }
   }
 
