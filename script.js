@@ -1,9 +1,11 @@
 ////	
 
+let root = "https://www.cxmoe.com";
+
 AV.init({
 		//appId:"PW4p5yuQfOGT9EITp5LE5aAq-MdYXbMMI",appKey:"jvG1mwtdlCeGgyL1s4z4NIir" //nmsl
 		//appId: "E7rWTTEsGSblT8OB06beui59-MdYXbMMI", appKey: "y4jlkd52FFbLb0kLALU0mrMm", //x4wj
-		appId:'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz',  appKey:'ycqjmtEfUxuxD3IY97oRkrdO'
+		appId:'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz',  appKey:'ycqjmtEfUxuxD3IY97oRkrdO', serverURL:'https://wble88qf.lc-cn-n1-shared.com'
 		//appid: '6BMsyigADmQmTmVot7Bvfedv-MdYXbMMI', appkey: 't9Qx24vbwvimWMK2wzceFrQX',
 		//appId: 'ikEEo5XOYTytaqIUMsLaiisX-gzGzoHsz', appKey: 'CBx5lgfUldUe1i1qBC6m7k0K',
 	});
@@ -32,7 +34,7 @@ AV.init({
 	}
     
 
-
+  
     
   function getPic(str){  
     var result;
@@ -51,7 +53,7 @@ AV.init({
   }  
   var pre = "time.day"; 
     
-  $('#allinshow').append('<br><center><a class="timm" >更多历史评论请前往cz5h.com查阅！</a></center>');
+  $('#allinshow').append('<br><center><a class="timm" >更多历史评论请前往cxmoe.com查阅！</a></center>');
     
 	for(var p = data.length-1; p>=0;p--){//遍历json数组时，这么写p为索引，0,1
   //for(var p in data){//遍历json数组时，这么写p为索引，0,1
@@ -83,7 +85,7 @@ AV.init({
             +'<div>'+url+'<img src='+getPic(data[p].attributes.mail)+'></a></div>'
             +'<span class="lname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="left_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")
-        +' <a target="_blank" href="https://www.cz5h.com'+data[p].attributes.url+'"><i class="fa fa-share-square" style="font-size:15px;color:#88b6d6"></i></a>'+'</div>'
+        +' <a target="_blank" href="'+root+data[p].attributes.url+'">🔎</a>'+'</div>'
         +'</div ><div style="clear: both;"></div>'
         
         );
@@ -95,7 +97,7 @@ AV.init({
             +'<div>'+url+'<img src="http://q.qlogo.cn/headimg_dl?dst_uin=1805984583&spec=640"></a></div>'
             +'<span class="rname">'+data[p].attributes.nick+'</span><br>'
             +'<div><div class="right_triangle"></div>'+data[p].attributes.comment.replace("<p>","").replace("</p>","")
-            +'<a target="_blank" href="https://www.cz5h.com'+data[p].attributes.url+'"><i class="fa fa-share-square" style="font-size:15px;color:#88b6d6"></i></a></div>'
+            +'<a target="_blank" href="'+root+data[p].attributes.url+'">🔎</a></div>'
         +'</div><div style="clear: both;"></div>' 
         
         );
@@ -104,7 +106,7 @@ AV.init({
 	}
   $('#allinshow').append('<br><center><a name="end" id="end"class="timm" >已到达最新评论！</a></center><br><br>'+
                          '<div class="jump"><input type="text" style=" cursor: pointer;border-width:0;width:100%;height:100px;border-radius:7px;background-color: #fdfdfd;" disabled="true"/>'+
-                         '<input type="button" value="前往博客" class="btn" onclick="window.open(\'https://www.cz5h.com\')"  /><div>');
+                         '<input type="button" value="前往博客" class="btn" onclick="window.open(\'"+root+"\')"  /><div>');
 	},function(err) {
 	  //错误信息 err
 	  //console.log('err');
